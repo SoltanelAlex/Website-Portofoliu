@@ -1,0 +1,314 @@
+:root{
+    --bg: #0f1115;
+    --surface: #15171c;
+    --muted: #bfbfbf;
+    --accent: #ff4d4d;
+    --linkedin: #0077b5;
+    --max-width: 1100px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+    font-family: 'Poppins', sans-serif;
+    background:var(--bg);
+    color:#f4f4f4;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    scroll-behavior:smooth;
+}
+
+/* NAVBAR (fixed) */
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 5%;
+    background:linear-gradient(180deg, rgba(21,23,28,0.95), rgba(21,23,28,0.85));
+    z-index:1000;
+    border-bottom:1px solid rgba(255,255,255,0.02);
+}
+
+.logo{font-weight:600;font-size:1.2rem}
+.logo .accent{color:var(--accent)}
+
+.nav-links{
+    display:flex;
+    gap:22px;
+    list-style:none;
+}
+.nav-links a{
+    color:#f4f4f4;
+    text-decoration:none;
+    font-weight:500;
+    opacity:0.95;
+    transition:color .18s, opacity .18s;
+}
+.nav-links a:hover{color:var(--accent); opacity:1}
+
+/* burger button (mobile) */
+.menu-toggle{
+    display:none;
+    width:44px;height:44px;
+    border-radius:8px;
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.03);
+    align-items:center;justify-content:center;
+}
+.menu-toggle span{display:block;width:18px;height:2px;background:#fff;margin:3px 0;transition:all .25s}
+
+/* MAIN spacing to account for fixed navbar */
+main{padding-top:92px;} 
+
+/* HERO - DESKTOP (Aranjare Orizontală: Stânga-Dreapta) */
+.hero{
+    max-width:var(--max-width);
+    margin:0 auto;
+    
+    display:flex; 
+    flex-direction: row; /* Layout orizontal: text/butoane | imagine */
+    position: relative; /* Necesar pentru poziționarea butoanelor */
+    
+    gap:40px; 
+    align-items:center; 
+    justify-content:space-between; 
+    
+    padding:80px 20px 48px 20px; 
+    min-height:calc(100vh - 92px); 
+    text-align: left; 
+}
+
+/* 1. Containerul de text */
+.hero-content{
+    flex:1; 
+    max-width:640px;
+    text-align: left; 
+    order: 1; 
+}
+.hero-content h1{font-size:2.6rem;line-height:1.05;margin-bottom:8px}
+.hero-content .accent{color:var(--accent)}
+.subtitle{color:#cfcfcf;margin-bottom:20px}
+
+/* 2. Imaginea */
+.hero-image{
+    flex:0 0 340px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    order: 2;
+}
+
+/* 3. Butoane - Mutate sub text pe desktop prin poziționare absolută */
+.hero-buttons-container {
+    display: flex; 
+    gap: 16px; 
+    flex-wrap: wrap; 
+    justify-content: flex-start; /* Aliniate la stânga */
+    
+    position: absolute;
+    left: 20px; 
+    bottom: 25%; 
+    max-width: 50%; 
+    order: 3; 
+}
+
+
+.btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:600;
+    transition:transform .18s, background .18s;
+}
+.btn-primary{background:var(--accent);color:#fff;border:2px solid rgba(255,255,255,0.06)}
+.btn-primary:hover{transform:translateY(-3px);background:#ff2a2a}
+.btn-linkedin{
+    background:transparent;color:var(--linkedin);border:2px solid var(--linkedin);padding:8px 14px;border-radius:10px;
+}
+.btn-linkedin img{width:18px;height:18px;filter:invert(36%) sepia(93%) saturate(1730%) hue-rotate(183deg) brightness(91%) contrast(96%)}
+.btn-linkedin:hover{background:var(--linkedin);color:#fff}
+
+/* Stil pentru Butoanele de Proiecte */
+.btn-github {
+    background: #333;
+    color: #fff;
+    border: 2px solid #555;
+}
+.btn-github:hover {
+    background: #555;
+    transform: translateY(-2px);
+}
+.btn-secondary {
+    background: var(--surface);
+    color: var(--accent);
+    border: 2px solid var(--accent);
+}
+.btn-secondary:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* hero image */
+.hero-image img{
+    width:320px;height:320px;border-radius:50%;object-fit:cover;
+    border:3px solid var(--accent);box-shadow:0 12px 40px rgba(255,77,77,0.12);
+    animation:float 3.5s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+/* ABOUT / PROJECTS */
+.about, .projects, .contact{
+    max-width:var(--max-width);
+    margin:0 auto;
+    padding:72px 20px;
+    text-align:center;
+}
+.about h2, .projects h2, .contact h2{color:var(--accent);margin-bottom:12px}
+
+/* --- PROIECTE NOU ADĂUGATE --- */
+.projects p {
+    margin-bottom: 30px;
+    color: var(--muted);
+}
+.project-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 18px;
+    flex-wrap: wrap; 
+}
+.project-card {
+    background: var(--surface);
+    padding: 20px;
+    border-radius: 12px;
+    width: 320px; 
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.project-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+.project-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+.project-card h3 {
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+.project-tech {
+    font-size: 0.9em;
+    color: #888;
+    margin-bottom: 12px;
+}
+.card-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+/* --- SFARSIT PROIECTE --- */
+
+.stats{display:flex;gap:24px;justify-content:center;margin-top:18px}
+.stats div{min-width:120px}
+
+
+/* FOOTER / CONTACT */
+.contact{background:linear-gradient(180deg, rgba(19,22,27,0.9), rgba(19,22,27,0.95));padding-bottom:48px}
+.contact p{color:var(--muted);margin:8px 0}
+
+/* RESPONSIVE - MOBILE 📱 (Layout Vertical) */
+@media (max-width:900px){
+    
+    /* Scoatem butoanele din poziția absolută și le punem înapoi în fluxul normal */
+    .hero-buttons-container {
+        position: static;
+        max-width: 100%;
+        margin-top: 20px; 
+        left: auto;
+        bottom: auto;
+    }
+    
+    /* NAV/MAIN */
+    main{padding-top:72px} 
+
+    /* Hero Section - Aranjare pe Coloană și Centrare */
+    .hero{
+        flex-direction:column; /* Aranjare pe coloană pe mobil */
+        min-height: auto; 
+        padding: 40px 20px 40px 20px; 
+        align-items: center; 
+        justify-content: flex-start; 
+        text-align: center; 
+        gap: 12px;
+    }
+
+    /* 1. Textul (Primul) */
+    .hero-content{
+        order: 1; /* PRIMUL */
+        text-align: center; 
+        width: 100%; 
+        padding-top: 10px; 
+    }
+    
+    /* 2. Imaginea (A doua) */
+    .hero-image{
+        order: 2; /* AL DOILEA */
+        margin: 10px 0; 
+        flex: 0 0 auto;
+    }
+    .hero-image img{
+        width: 200px; 
+        height: 200px;
+    }
+    
+    /* 3. Butoanele (Al treilea) */
+    .hero-buttons-container {
+        order: 3; /* AL TREILEA */
+        gap: 12px;
+        justify-content: center; /* Butoane centrate pe mobil */
+        width: 100%;
+    }
+
+    /* Proiecte - Lățime completă pe mobil */
+    .project-card {
+        width: 100%; /* Ocupă lățimea completă pe mobil */
+        max-width: 400px; 
+        margin: 0 auto;
+    }
+    .card-buttons {
+        justify-content: center; /* Centrează butoanele pe mobil */
+    }
+
+    /* Navbar/Meniu Burger */
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:72px;
+        right:5%;
+        background:var(--surface);
+        flex-direction:column;
+        padding:12px;
+        border-radius:10px;
+        box-shadow:0 8px 30px rgba(0,0,0,0.6)
+    }
+    .nav-links.open{display:flex}
+    .menu-toggle{display:flex;align-items:center;justify-content:center;border:none;background:transparent}
+    .menu-toggle.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .menu-toggle.open span:nth-child(2){opacity:0}
+    .menu-toggle.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+    /* Ajustări generale */
+    .stats{
+        flex-direction: column;
+        gap: 15px;
+    }
+}
