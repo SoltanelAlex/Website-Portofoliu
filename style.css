@@ -73,10 +73,10 @@ main{padding-top:92px;}
     
     display:flex; 
     flex-direction: row; /* Layout orizontal: text/butoane | imagine */
-    position: relative; /* Necesar pentru poziționarea butoanelor */
+    position: relative; 
     
     gap:40px; 
-    align-items:center; 
+    align-items:center; /* ✨ Centrare verticală */
     justify-content:space-between; 
     
     padding:80px 20px 48px 20px; 
@@ -84,10 +84,10 @@ main{padding-top:92px;}
     text-align: left; 
 }
 
-/* 1. Containerul de text */
+/* 1. Containerul de text (acum include și butoanele) */
 .hero-content{
     flex:1; 
-    max-width:640px;
+    max-width:550px; /* Lățime fixă pentru conținutul text */
     text-align: left; 
     order: 1; 
 }
@@ -104,17 +104,19 @@ main{padding-top:92px;}
     order: 2;
 }
 
-/* 3. Butoane - Mutate sub text pe desktop prin poziționare absolută */
+/* 3. Butoane - Eliminăm poziționarea absolută */
 .hero-buttons-container {
     display: flex; 
     gap: 16px; 
     flex-wrap: wrap; 
     justify-content: flex-start; /* Aliniate la stânga */
     
-    position: absolute;
-    left: 20px; 
-    bottom: 25%; 
-    max-width: 50%; 
+    /* Linii ELIMINATE/MODIFICATE: */
+    /* position: absolute; */
+    /* left: 20px; */ 
+    /* bottom: 25%; */ 
+    margin-top: 15px; /* Adaugă spațiu după subtitlu */
+    max-width: 100%; /* Folosește lățimea normală */
     order: 3; 
 }
 
