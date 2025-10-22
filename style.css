@@ -66,58 +66,64 @@ body{
 /* MAIN spacing to account for fixed navbar */
 main{padding-top:92px;} 
 
-/* HERO - DESKTOP (Aranjare Orizontală: Stânga-Dreapta) */
+/* HERO - DESKTOP (Text + Butoane | Imagine) */
 .hero{
     max-width:var(--max-width);
     margin:0 auto;
     
     display:flex; 
-    flex-direction: row; /* Layout orizontal: text/butoane | imagine */
+    flex-direction: row; 
     position: relative; 
     
     gap:40px; 
-    align-items:center; /* ✨ Centrare verticală */
+    align-items:center; /* Centrare Verticală */
     justify-content:space-between; 
     
     padding:80px 20px 48px 20px; 
     min-height:calc(100vh - 92px); 
     text-align: left; 
+    
+    /* ✨ SOLUȚIA: Permitem înfășurarea pentru a permite Butoanelor să sară sub Text */
+    flex-wrap: wrap; 
 }
 
-/* 1. Containerul de text (acum include și butoanele) */
+/* 1. Containerul de text (Coloana Stânga) */
 .hero-content{
-    flex:1; 
-    max-width:550px; /* Lățime fixă pentru conținutul text */
+    flex: 1 1 500px; /* Permite creșterea, dar ocupă prima jumătate */
+    max-width: 550px; 
     text-align: left; 
     order: 1; 
+    /* Am eliminat margin-bottom: 20px de pe .subtitle pentru a apropia butoanele */
 }
 .hero-content h1{font-size:2.6rem;line-height:1.05;margin-bottom:8px}
 .hero-content .accent{color:var(--accent)}
-.subtitle{color:#cfcfcf;margin-bottom:20px}
+.subtitle{color:#cfcfcf; margin-bottom: 0;}
 
-/* 2. Imaginea */
+/* 2. Imaginea (Coloana Dreapta) */
 .hero-image{
     flex:0 0 340px;
     display:flex;
     justify-content:center;
     align-items:center;
-    order: 2;
+    order: 2; /* Vine a doua */
 }
 
-/* 3. Butoane - Eliminăm poziționarea absolută */
+/* 3. Butoane - Vrem să stea sub text, vizual */
 .hero-buttons-container {
     display: flex; 
     gap: 16px; 
     flex-wrap: wrap; 
-    justify-content: flex-start; /* Aliniate la stânga */
+    justify-content: flex-start; /* Aliniate la stânga textului */
     
-    /* Linii ELIMINATE/MODIFICATE: */
-    /* position: absolute; */
-    /* left: 20px; */ 
-    /* bottom: 25%; */ 
-    margin-top: 15px; /* Adaugă spațiu după subtitlu */
-    max-width: 100%; /* Folosește lățimea normală */
-    order: 3; 
+    /* Resetăm poziționarea absolută */
+    position: static;
+    
+    /* ✨ SOLUȚIA: Forțăm butoanele să stea sub text, dar să fie vizual în prima coloană */
+    flex: 1 0 100%; /* Ocupă lățimea completă pentru a sări pe un rând nou */
+    max-width: 550px; /* Limitat la lățimea textului */
+    margin-top: 15px; /* Spațiu între subtitlu și butoane */
+    
+    order: 3; /* Ordinea este ultima, dar Flexbox-ul îl pune pe rândul 2 sub Text */
 }
 
 
@@ -231,15 +237,6 @@ main{padding-top:92px;}
 /* RESPONSIVE - MOBILE 📱 (Layout Vertical) */
 @media (max-width:900px){
     
-    /* Scoatem butoanele din poziția absolută și le punem înapoi în fluxul normal */
-    .hero-buttons-container {
-        position: static;
-        max-width: 100%;
-        margin-top: 20px; 
-        left: auto;
-        bottom: auto;
-    }
-    
     /* NAV/MAIN */
     main{padding-top:72px} 
 
@@ -252,19 +249,25 @@ main{padding-top:92px;}
         justify-content: flex-start; 
         text-align: center; 
         gap: 12px;
+        flex-wrap: nowrap; /* Resetăm de pe desktop */
     }
-
+    
     /* 1. Textul (Primul) */
     .hero-content{
-        order: 1; /* PRIMUL */
+        order: 1; /* ✨ PRIMUL ÎN HERO */
         text-align: center; 
         width: 100%; 
         padding-top: 10px; 
+        /* Resetăm proprietățile de flex de pe desktop: */
+        flex: auto; 
+        max-width: 100%;
     }
+    .subtitle{margin-bottom: 0;} /* Asigurăm că nu este spațiu suplimentar */
+
     
     /* 2. Imaginea (A doua) */
     .hero-image{
-        order: 2; /* AL DOILEA */
+        order: 2; /* ✨ AL DOILEA ÎN HERO */
         margin: 10px 0; 
         flex: 0 0 auto;
     }
@@ -275,20 +278,25 @@ main{padding-top:92px;}
     
     /* 3. Butoanele (Al treilea) */
     .hero-buttons-container {
-        order: 3; /* AL TREILEA */
+        position: static; /* ✨ DEZACTIVĂM poziționarea absolută */
+        order: 3; /* ✨ AL TREILEA ÎN HERO */
         gap: 12px;
         justify-content: center; /* Butoane centrate pe mobil */
         width: 100%;
+        margin-top: 20px;
+        /* Resetăm proprietățile de flex de pe desktop: */
+        flex: auto;
+        max-width: 100%;
     }
 
     /* Proiecte - Lățime completă pe mobil */
     .project-card {
-        width: 100%; /* Ocupă lățimea completă pe mobil */
+        width: 100%; 
         max-width: 400px; 
         margin: 0 auto;
     }
     .card-buttons {
-        justify-content: center; /* Centrează butoanele pe mobil */
+        justify-content: center; 
     }
 
     /* Navbar/Meniu Burger */
