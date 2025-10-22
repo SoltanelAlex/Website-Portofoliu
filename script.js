@@ -12,6 +12,7 @@ menuToggle.addEventListener('click', () => {
     menuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
 });
 
+
 // Close menu when a link is clicked (mobile)
 navAnchors.forEach(a => {
     a.addEventListener('click', () => {
