@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alex | Software Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Alex<span class="accent">.</span></div>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" data-target="#home">Acasă</a></li>
+        <li><a href="#about" data-target="#about">Despre</a></li>
+        <li><a href="#projects" data-target="#projects">Proiecte</a></li>
+        <li><a href="#contact" data-target="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button id="menu-toggle" class="menu-toggle" aria-label="Meniu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <!-- HERO pe CSS Grid: content | image / buttons | image -->
+    <section id="home" class="hero">
+      <div class="hero-content fade-slide">
+        <h1>Salut,<br><span class="accent">sunt Alex</span>.</h1>
+        <p class="subtitle">Software Developer</p>
+      </div>
+
+      <div class="hero-image fade-slide">
+        <img src="Untitled_Artwork.PNG" alt="Alex - Software Developer">
+      </div>
+
+      <div class="hero-buttons-container fade-slide">
+        <a class="btn btn-linkedin" href="https://www.linkedin.com/in/soltanel-alexandru-b99915323" target="_blank" rel="noopener noreferrer">
+          <img class="linkedin-icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
+          LinkedIn
+        </a>
+        <a class="btn btn-primary" href="#contact">Contactează-mă</a>
+      </div>
+    </section>
+
+    <section id="about" class="about fade-slide">
+      <h2>Despre mine</h2>
+      <p>Sunt pasionat de tehnologie și creez aplicații curate, rapide și ușor de folosit.</p>
+      <div class="stats">
+        <div><strong>120+</strong><span>Ore de practică</span></div>
+        <div><strong>95%</strong><span>Proiecte finalizate</span></div>
+        <div><strong>10+</strong><span>Colaborări</span></div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects fade-slide">
+      <h2>Proiecte</h2>
+      <p>Iată o selecție a lucrărilor mele recente care demonstrează competențele mele în dezvoltare software.</p>
+
+      <div class="project-grid">
+        <div class="project-card fade-slide">
+          <img src="quiz-app-screenshot.png" alt="Aplicație General Knowledge Quiz" class="project-img">
+          <h3>Aplicație General Knowledge Quiz</h3>
+          <p class="project-tech">Tehnologii: Next.js, React, JavaScript, Netlify</p>
+          <p>O aplicație web rapidă construită cu Next.js care testează cunoștințele de cultură generală.</p>
+          <div class="card-buttons">
+            <a href="https://generalknowledgequizz.netlify.app" target="_blank" class="btn btn-secondary">Demo Live</a>
+            <a href="https://github.com/SoltanelAlex/quizApp" target="_blank" class="btn btn-github">Sursa (GitHub)</a>
+          </div>
+        </div>
+
+        <div class="project-card fade-slide">
+          <img src="project-image-1.jpg" alt="Proiect eCommerce Demo" class="project-img">
+          <h3>Proiect eCommerce Demo</h3>
+          <p class="project-tech">Tehnologii: React, Node.js, MongoDB</p>
+          <p>O aplicație completă de comerț electronic...</p>
+          <div class="card-buttons">
+            <a href="#" target="_blank" class="btn btn-secondary">Demo Live</a>
+            <a href="#" target="_blank" class="btn btn-github">Sursa (GitHub)</a>
+          </div>
+        </div>
+
+        <div class="project-card fade-slide">
+          <img src="project-image-2.jpg" alt="Aplicație To-Do" class="project-img">
+          <h3>Aplicație To-Do List</h3>
+          <p class="project-tech">Tehnologii: Vanilla JavaScript, CSS Grid</p>
+          <p>O aplicație simplă, dar robustă...</p>
+          <div class="card-buttons">
+            <a href="#" target="_blank" class="btn btn-secondary">Demo Live</a>
+            <a href="#" target="_blank" class="btn btn-github">Sursa (GitHub)</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="contact fade-slide">
+    <h2>Contact</h2>
+    <p>Poți lua legătura cu mine la:</p>
+    <p><strong>Email:</strong> soltanelalexandru6@gmail.com</p>
+    <a class="btn btn-primary" href="mailto:soltanelalexandru6@gmail.com">Trimite email</a>
+    <p class="copyright">© 2025 Alex. Toate drepturile rezervate.</p>
+  </footer>
+</body>
+</html>

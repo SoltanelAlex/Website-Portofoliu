@@ -1,0 +1,121 @@
+:root { --bg:#0f1115; --surface:#15171c; --muted:#bfbfbf; --accent:#ff4d4d; --linkedin:#0077b5; --max-width:1100px; }
+
+/* RESET & BASE */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:#f4f4f4;line-height:1.5;-webkit-font-smoothing:antialiased;scroll-behavior:smooth;overflow-x:hidden}
+
+/* NAVBAR */
+.navbar{position:fixed;top:0;left:0;right:0;height:72px;display:flex;align-items:center;justify-content:space-between;padding:12px 5%;background:linear-gradient(180deg,rgba(21,23,28,.95),rgba(21,23,28,.85));z-index:1000;border-bottom:1px solid rgba(255,255,255,.02)}
+.logo{font-weight:600;font-size:1.2rem}.logo .accent{color:var(--accent)}
+.nav-links{display:flex;gap:22px;list-style:none}
+.nav-links a{color:#f4f4f4;text-decoration:none;font-weight:500;opacity:.95;transition:color .18s,opacity .18s}
+.nav-links a:hover{color:var(--accent);opacity:1}
+.menu-toggle{display:none;width:44px;height:44px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,.03);align-items:center;justify-content:center}
+.menu-toggle span{display:block;width:18px;height:2px;background:#fff;margin:3px 0;transition:all .25s}
+
+/* MAIN */
+main{padding-top:92px}
+
+/* ================= HERO (CSS GRID) ================= */
+.hero{
+  max-width:var(--max-width);
+  margin:0 auto;
+  display:grid;
+
+  /* FIXUL MAGIC */
+  grid-template-columns: minmax(280px, 1fr) minmax(260px, 380px);
+
+  grid-template-areas:
+    "content image"
+    "buttons image";
+  align-items:center;
+  column-gap:60px;
+  row-gap:18px;
+  padding:80px 60px 48px 80px;
+  min-height:calc(100vh - 92px);
+}
+
+
+.hero-content{grid-area:content;text-align:left}
+.hero-content h1{font-size:2.8rem;line-height:1.1;margin-bottom:10px}
+.hero-content .accent{color:var(--accent)}
+.subtitle{color:#cfcfcf;margin-bottom:6px}
+
+.hero-image{grid-area:image;display:flex;justify-content:center;align-items:center}
+.hero-image img{width:320px;height:320px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);box-shadow:0 12px 40px rgba(255,77,77,.12);transition:box-shadow .5s ease;animation:float 3.5s ease-in-out infinite}
+.hero-image img:hover{box-shadow:0 0 40px rgba(255,77,77,.4)}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+.hero-buttons-container{
+  grid-area:buttons;
+  display:flex;gap:16px;flex-wrap:wrap;
+  justify-self:start;
+}
+
+/* BUTOANE */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:600;transition:transform .18s,background .18s}
+.btn-primary{background:var(--accent);color:#fff;border:2px solid rgba(255,255,255,.06)}
+.btn-primary:hover{transform:translateY(-3px);background:#ff2a2a}
+.btn-linkedin{background:transparent;color:var(--linkedin);border:2px solid var(--linkedin);padding:8px 14px;border-radius:10px}
+.btn-linkedin img{width:18px;height:18px;filter:invert(36%) sepia(93%) saturate(1730%) hue-rotate(183deg) brightness(91%) contrast(96%)}
+.btn-linkedin:hover{background:var(--linkedin);color:#fff}
+
+/* SECTIUNI GENERALE */
+.about,.projects,.contact{max-width:var(--max-width);margin:0 auto;padding:72px 20px;text-align:center}
+.about h2,.projects h2,.contact h2{color:var(--accent);margin-bottom:12px}
+
+/* PROIECTE */
+.projects p{margin-bottom:30px;color:var(--muted)}
+.project-grid{display:flex;gap:20px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+.project-card{background:var(--surface);padding:20px;border-radius:12px;width:320px;text-align:left;transition:transform .3s,box-shadow .3s;border:1px solid rgba(255,255,255,.05)}
+.project-card:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(0,0,0,.2)}
+.project-img{width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:15px}
+.project-card h3{color:var(--accent);margin-bottom:8px}
+.project-tech{font-size:.9em;color:#888;margin-bottom:12px}
+.card-buttons{display:flex;gap:10px;margin-top:15px}
+.btn-github{background:#333;color:#fff;border:2px solid #555}
+.btn-github:hover{background:#555;transform:translateY(-2px)}
+.btn-secondary{background:var(--surface);color:var(--accent);border:2px solid var(--accent)}
+.btn-secondary:hover{background:var(--accent);color:#fff;transform:translateY(-2px)}
+
+/* STATS & FOOTER */
+.stats{display:flex;gap:24px;justify-content:center;margin-top:18px}
+.stats div{min-width:120px}
+.contact{background:linear-gradient(180deg,rgba(19,22,27,.9),rgba(19,22,27,.95));padding-bottom:48px}
+.contact p{color:var(--muted);margin:8px 0}
+
+/* ================= ANIMAȚII ================= */
+.fade-slide{opacity:0;transform:translateY(40px);transition:all .9s ease-out}
+.fade-slide.visible{opacity:1;transform:translateY(0)}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width:1100px){
+  main{padding-top:72px}
+  .hero{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "content"
+      "image"
+      "buttons";
+    row-gap:22px;column-gap:0;text-align:center;
+
+    /* Resetăm padding-ul mare pentru mobil */
+    padding:60px 20px;
+  }
+
+  .hero-buttons-container{justify-self:center;justify-content:center}
+  .hero-image img{width:200px;height:200px}
+
+  .project-card{width:100%;max-width:400px;margin:0 auto}
+  .card-buttons{justify-content:center}
+
+  .nav-links{display:none;position:absolute;top:72px;right:5%;background:var(--surface);flex-direction:column;padding:12px;border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,.6)}
+  .nav-links.open{display:flex}
+  .menu-toggle{display:flex;align-items:center;justify-content:center;border:none;background:transparent}
+  .menu-toggle.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .menu-toggle.open span:nth-child(2){opacity:0}
+  .menu-toggle.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+  .stats{flex-direction:column;gap:15px}
+}
