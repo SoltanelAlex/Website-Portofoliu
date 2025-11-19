@@ -119,3 +119,15 @@ main{padding-top:92px}
 
   .stats{flex-direction:column;gap:15px}
 }
+/* Asigură alinierea verticală identică în toate cardurile */
+.project-card {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Împinge butoanele la baza cardului */
+.card-buttons {
+    margin-top: auto;
+    display: flex;
+    gap: 12px;
+}
